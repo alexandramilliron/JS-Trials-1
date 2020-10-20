@@ -97,10 +97,12 @@ function censorVowels(word) {
     if ('aeiou'.includes(letter)) {
       chars.push('*');
     }
-    chars.push(letter);
+    else {
+      chars.push(letter);
+    }
   }
 
-  return chars.join('');
+  return chars.join("")
 }
 
 
@@ -181,14 +183,15 @@ function hasBalancedParens(string) {
       parens += 1;
     } else if (char === ')') {
       parens -= 1;
-
-      if (parens < 0) {
-        return false;
-      }
     }
   }
 
-  return parens < 0;
+  if (parens > 0) {
+    return false;
+  }
+  else if (parens === 0) {
+    return true; 
+  }
 }
 
 
